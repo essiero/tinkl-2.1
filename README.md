@@ -17,6 +17,10 @@ Before you get started, make sure you have the following software installed on y
 - [Nodemon](https://nodemon.io)
 - [React-Leaflet](https://leafletjs.com/) : run "npm i react-leaflet" in root folder
 - [Material-UI] : run "npm i @mui/material" in root folder
+- [@reduxjs/toolkit] npm i @reduxjs/toolkit
+- npm i redux-logger
+- npm install --save-dev @types/pg
+
 
 ## Create Database and Table
 

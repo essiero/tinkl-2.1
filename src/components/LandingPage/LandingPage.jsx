@@ -6,7 +6,7 @@ import './LandingPage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('Pee in peace.');
   const history = useHistory();
 
   const onLogin = (event) => {
@@ -20,35 +20,15 @@ function LandingPage() {
       <div className="grid">
         <div className="grid-col grid-col_8">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+            Did you know that nearly <strong>60%</strong> of trans Americans avoided using public restrooms in the last year?
           </p>
 
           <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
+            Contrary to right-wing vitriol, trans people are much more likely to experience harassment <strong>themselves</strong> while using public bathrooms. <sup><a href="https://glaad.org/fact-sheet-misleading-narratives-about-transgender-people-and-restrooms-locker-rooms-and-other-single-sex-spaces/">1</a></sup>
           </p>
 
           <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
+            tinkl is a harm-reduction tool to support trans, nonbinary and gender-nonconforming people find safer restrooms while out and about. It locates nearby gender-neutral and single-stall bathrooms so that we can <strong>pee in peace </strong>- goddammit!!
           </p>
         </div>
         <div className="grid-col grid-col_4">

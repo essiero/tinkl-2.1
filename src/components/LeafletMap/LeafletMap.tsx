@@ -12,6 +12,7 @@ import { BathroomType } from "../../types/BathroomType";
 
 export const LeafletMap = () => {
     const user = useSelector((state: TinklRootState) => state.user);
+    const location = useSelector((state: any) => state.location)
     const options = useSelector((state: TinklRootState) => state.options);
     const filters = useSelector((state: TinklRootState) => state.filters);
     const bathroomData: BathroomType[] = useSelector((state: TinklRootState) => state.bathroomData);
@@ -20,12 +21,12 @@ export const LeafletMap = () => {
 
     return (
         <div className="alert">
-        <MapContainer center={[44.970382, -93.267836]} zoom={15}  style={{ height: "90%", width: "100%", textAlign: 'center', borderRadius: '5px', padding: '10px 20px 50px' }}>
+        <MapContainer center={location} zoom={15}  style={{ height: "70%", width: "100%", textAlign: 'center', borderRadius: '5px', padding: '20px' }}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[44.970382, -93.267836]}>
+            <Marker position={location}>
                 <Popup>
                     A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>

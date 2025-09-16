@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   HashRouter as Router,
   Redirect,
@@ -16,7 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { AboutPage } from '../AboutPage/AboutPage';
 import { LeafletMap } from '../LeafletMap/LeafletMap';
 import HomePage from '../HomePage';
-import InfoPage from '../InfoPage/InfoPage';
+import AddBathroom from '../AddBathroom';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -24,14 +24,45 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
 import 'leaflet/dist/leaflet.css';
 
+import { setUser, setUserLocation } from '../../redux/reducers/userReducer';
+
 
 function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
+  const [locationReady, setLocationReady] = useState(false);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
+
+    // Gets lat and lng coordinates from user and places it in redux state
+       if (navigator.geolocation) {
+      const watcher = navigator.geolocation.watchPosition(
+        (position) => {
+          dispatch(setUserLocation({ lat: position.coords.latitude, lng: position.coords.longitude }));
+          setLocationReady(true);
+          console.log("user location is: ", ({ lat: position.coords.latitude, lng: position.coords.longitude }))
+          dispatch({
+            type: "SET_LOCATION", 
+            payload: { 
+              lat: position.coords.latitude, 
+              lng: position.coords.longitude }})
+        },
+        (error) => {
+          console.error('Error watching position:', error);
+        }
+      );
+
+      //Return cleans up the watcher on component unmount
+      return () => {
+        navigator.geolocation.clearWatch(watcher);
+      }
+    } else {
+
+      //todo - create option to look via zip code
+      console.error('Geolocation is not supported by this browser');
+    }
   }, [dispatch]);
 
   return (
@@ -64,11 +95,11 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows AddBathroom else shows LoginPage
             exact
-            path="/info"
+            path="/add"
           >
-            <InfoPage />
+            <AddBathroom />
           </ProtectedRoute>
 
           <Route
