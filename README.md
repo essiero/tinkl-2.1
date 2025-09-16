@@ -15,6 +15,8 @@ Before you get started, make sure you have the following software installed on y
 - [Node.js](https://nodejs.org/en)
 - [PostgreSQL](https://www.postgresql.org)
 - [Nodemon](https://nodemon.io)
+- [React-Leaflet](https://leafletjs.com/) : run "npm i react-leaflet" in root folder
+- [Material-UI] : run "npm i @mui/material" in root folder
 
 ## Create Database and Table
 
@@ -103,7 +105,7 @@ This code is also heavily commented. We recommend reading through the comments, 
   - Nav/Nav
   - AboutPage/AboutPage
   - InfoPage/InfoPage
-  - UserPage/UserPage
+  - HomePage
   - LoginPage/LoginPage
   - RegisterPage/RegisterPage
   - LogOutButton/LogOutButton

@@ -13,14 +13,17 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import { AboutPage } from '../AboutPage/AboutPage';
+import { LeafletMap } from '../LeafletMap/LeafletMap';
+import HomePage from '../HomePage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import 'leaflet/dist/leaflet.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -49,15 +52,15 @@ function App() {
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:5173/user will show the UserPage if the user is logged in.
+            Visiting localhost:5173/user will show the HomePage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:5173/user */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows HomePage else shows LoginPage
             exact
             path="/user"
           >
-            <UserPage />
+            <HomePage />
           </ProtectedRoute>
 
           <ProtectedRoute
